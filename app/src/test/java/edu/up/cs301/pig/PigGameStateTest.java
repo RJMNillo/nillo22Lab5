@@ -1,6 +1,7 @@
 package edu.up.cs301.pig;
 
 import org.junit.Test;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -11,14 +12,9 @@ public class PigGameStateTest {
     {
         PigGameState StameGate = new PigGameState();
         int testTurn = StameGate.getWhoseturn();
-        if(testTurn == 1)
-        {
-            assertEquals("Turn is not in sync",testTurn,StameGate.getWhoseturn());
-        }
-        else
-        {
-            assertEquals("Turn is not in sync", 0,StameGate.getWhoseturn());
-        }
+        Random randcheck = new Random();
+        int randNum = randcheck.nextInt(2);
+        assertEquals("getWhoseturn not in sync",randNum,testTurn,1);
 
         //I did two cases because if if the turn is not one, then the other turn is 0. The Turn is determined by
         //The constructor, doing a random from 0 and 1.
